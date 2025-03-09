@@ -1,0 +1,1656 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        MSN China
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('https://placehold.co/1920x1080/007bff/ffffff?text=Sunset+Mountain+Background');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .top-bar .city {
+            margin-right: 10px;
+        }
+
+        .top-bar .temp {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .temp i {
+            color: #f8c01d;
+            margin-right: 5px;
+        }
+
+        .top-bar .settings {
+            margin-left: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-box {
+            display: flex;
+            width: 60%;
+            max-width: 600px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-button {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        .app-icons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .blue-bg {
+            background-color: #0078d4;
+        }
+
+        .black-bg {
+            background-color: #000;
+        }
+
+        .red-bg {
+            background-color: #e62117;
+        }
+
+        .orange-bg {
+            background-color: #ff6700;
+        }
+
+        .green-bg {
+            background-color: #00a651;
+        }
+
+        .gray-bg {
+            background-color: #767676;
+        }
+
+        .teal-bg {
+            background-color: #00a99d;
+        }
+
+        .add-bg {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .quick-link i {
+            margin-right: 5px;
+        }
+
+        .content-container {
+            background-color: white;
+            margin: 0 auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            padding: 0 20px;
+        }
+
+        .nav-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .nav-tab.active {
+            color: #0078d4;
+            border-bottom: 2px solid #0078d4;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .card-large {
+            grid-column: span 6;
+            grid-row: span 2;
+        }
+
+        .card-medium {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+
+        .card-small {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-large .card-image {
+            height: 300px;
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-source {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .card-source img {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .card-time {
+            font-size: 12px;
+            color: #999;
+            margin-left: 5px;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .card-action {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-action i {
+            margin-right: 3px;
+        }
+
+        .news-list {
+            grid-column: span 3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-number {
+            color: #ff6700;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 15px;
+        }
+
+        .news-title {
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .weather-card {
+            background-color: #0078d4;
+            color: white;
+            padding: 15px;
+        }
+
+        .weather-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .weather-temp {
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .weather-icon {
+            font-size: 24px;
+            margin-right: 5px;
+            color: #f8c01d;
+        }
+
+        .weather-forecast {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .forecast-day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .stock-card {
+            padding: 15px;
+        }
+
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stock-name {
+            font-size: 14px;
+        }
+
+        .stock-price {
+            font-size: 14px;
+        }
+
+        .stock-change {
+            font-size: 12px;
+            color: #ff4d4f;
+            display: flex;
+            align-items: center;
+        }
+
+        .stock-change.positive {
+            color: #52c41a;
+        }
+
+        .calendar-card {
+            padding: 15px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .calendar-date {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .calendar-day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .calendar-day.today {
+            background-color: #0078d4;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .ad-label {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+
+        .more-actions {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .more-button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 15px;
+            margin: 0 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .more-button i {
+            margin-right: 5px;
+        }
+
+        .news-source-list {
+            padding: 10px;
+        }
+
+        .news-source-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-source-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .news-source-name {
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .add-button {
+            color: #999;
+            cursor: pointer;
+        }
+
+        .traffic-map {
+            height: 150px;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .traffic-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .traffic-time {
+            color: #ff6700;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .game-ad {
+            position: relative;
+        }
+
+        .game-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-subtitle {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-tabs {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .custom-tab {
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .custom-tab.active {
+            border-bottom: 2px solid #0078d4;
+            color: #0078d4;
+        }
+
+        .ellipsis {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="city">
+            北京市
+        </div>
+        <div class="temp">
+            <i class="fas fa-sun">
+            </i>
+            -1°C
+        </div>
+        <div class="settings">
+            <i class="fas fa-cog">
+            </i>
+        </div>
+    </div>
+    <div class="search-container">
+        <div class="search-box">
+            <input class="search-input" placeholder="搜索工作和网页" type="text" />
+            <button class="search-button">
+                <i class="fas fa-search">
+                </i>
+            </button>
+        </div>
+    </div>
+    <div class="app-icons">
+        <a class="app-icon" href="#">
+            <div class="icon-circle blue-bg">
+                <i class="fab fa-edge">
+                </i>
+            </div>
+            <span>
+                Microsoft Edge
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle black-bg">
+                <i class="fab fa-xbox">
+                </i>
+            </div>
+            <span>
+                Xbox
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle red-bg">
+                <i class="fas fa-shopping-bag">
+                </i>
+            </div>
+            <span>
+                京东
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle orange-bg">
+                <i class="fas fa-user">
+                </i>
+            </div>
+            <span>
+                淘宝
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle green-bg">
+                <i class="fas fa-comment">
+                </i>
+            </div>
+            <span>
+                微信公众号
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle gray-bg">
+                <i class="fas fa-file">
+                </i>
+            </div>
+            <span>
+                Microsoft 365
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle teal-bg">
+                <i class="fas fa-cloud">
+                </i>
+            </div>
+            <span>
+                微软云服务平台
+            </span>
+        </a>
+        <a class="app-icon" href="#">
+            <div class="icon-circle add-bg">
+                <i class="fas fa-plus">
+                </i>
+            </div>
+            <span>
+                添加应用
+            </span>
+        </a>
+    </div>
+    <div class="quick-links">
+        <a class="quick-link" href="#">
+            <i class="fas fa-search">
+            </i>
+            <span>
+                必应搜索
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-music">
+            </i>
+            <span>
+                抖音
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-shopping-cart">
+            </i>
+            <span>
+                京东
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-video">
+            </i>
+            <span>
+                哔哩
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-gamepad">
+            </i>
+            <span>
+                5177游戏
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-cloud">
+            </i>
+            <span>
+                智慧内容
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-map-marker-alt">
+            </i>
+            <span>
+                美团外卖
+            </span>
+        </a>
+        <a class="quick-link" href="#">
+            <i class="fas fa-ellipsis-h">
+            </i>
+            <span>
+                更多
+            </span>
+        </a>
+    </div>
+    <div class="content-container">
+        <div class="nav-tabs">
+            <div class="nav-tab active">
+                <img alt="MSN Logo" src="https://placehold.co/20x20/0078d4/ffffff?text=MSN"
+                    style="width: 20px; height: 20px; margin-right: 5px;" />
+                首页
+            </div>
+            <div class="nav-tab">
+                热点
+            </div>
+            <div class="nav-tab">
+                财经
+            </div>
+            <div class="nav-tab">
+                体育
+            </div>
+            <div class="nav-tab">
+                娱乐
+            </div>
+            <div class="nav-tab">
+                天气
+            </div>
+            <div class="nav-tab">
+                体育
+            </div>
+            <div class="nav-tab">
+                小视频
+            </div>
+            <div class="nav-tab">
+                财经
+            </div>
+            <div class="nav-tab">
+                电视
+            </div>
+            <div class="nav-tab">
+                购物
+            </div>
+            <div class="nav-tab">
+                健康
+            </div>
+            <div class="nav-tab">
+                交通
+            </div>
+            <div class="nav-tab">
+                大众汽车
+            </div>
+            <div class="nav-tab">
+                日历
+            </div>
+        </div>
+        <div class="more-actions">
+            <button class="more-button">
+                <i class="fas fa-sync-alt">
+                </i>
+                更新内容
+            </button>
+            <button class="more-button">
+                <i class="fas fa-cog">
+                </i>
+                个性化设置
+            </button>
+        </div>
+        <div class="content-grid">
+            <!-- Game Ad Card -->
+            <div class="card card-large game-ad">
+                <img alt="传奇游戏广告展示古代中国风格的游戏场景，展示了宫殿和角色" class="card-image"
+                    src="https://placehold.co/600x300/ff6700/ffffff?text=传奇游戏广告" />
+                <div class="game-title">
+                    传奇3
+                </div>
+                <div class="game-subtitle">
+                    全新2025版本
+                </div>
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="游戏图标" src="https://placehold.co/16x16/ff6700/ffffff?text=游戏" />
+                        <span>
+                            官方推荐·新游推荐
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        散人都能爽玩！
+                    </div>
+                </div>
+                <div class="ad-label">
+                    广告
+                </div>
+            </div>
+            <!-- News Source List -->
+            <div class="card news-list">
+                <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold;">
+                        为你推荐
+                    </span>
+                    <i class="fas fa-ellipsis-h">
+                    </i>
+                </div>
+                <div class="news-source-list">
+                    <div class="news-source-item">
+                        <div class="news-source-icon" style="background-color: #e62117; color: white;">
+                            新
+                        </div>
+                        <div class="news-source-name">
+                            新华社
+                        </div>
+                        <div class="add-button">
+                            <i class="fas fa-plus">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="news-source-item">
+                        <div class="news-source-icon" style="background-color: #ff6700; color: white;">
+                            人
+                        </div>
+                        <div class="news-source-name">
+                            人民网
+                        </div>
+                        <div class="add-button">
+                            <i class="fas fa-plus">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="news-source-item">
+                        <div class="news-source-icon" style="background-color: #0078d4; color: white;">
+                            日
+                        </div>
+                        <div class="news-source-name">
+                            每日经济新闻
+                        </div>
+                        <div class="add-button">
+                            <i class="fas fa-plus">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="news-source-item">
+                        <div class="news-source-icon" style="background-color: #52c41a; color: white;">
+                            生
+                        </div>
+                        <div class="news-source-name">
+                            生活小课堂
+                        </div>
+                        <div class="add-button">
+                            <i class="fas fa-plus">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="news-source-item">
+                        <div class="news-source-icon" style="background-color: #e62117; color: white;">
+                            IT
+                        </div>
+                        <div class="news-source-name">
+                            IT之家
+                        </div>
+                        <div class="add-button">
+                            <i class="fas fa-plus">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 10px; text-align: center; color: #0078d4; font-size: 12px;">
+                    <i class="fas fa-cog">
+                    </i>
+                    个性化资讯推荐
+                </div>
+            </div>
+            <!-- News Card -->
+            <div class="card card-medium">
+                <img alt="水滴特写镜头，展示水滴的晶莹剔透和光影效果" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=水滴特写" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="人民网图标" src="https://placehold.co/16x16/ff6700/ffffff?text=人民" />
+                        <span>
+                            人民网网
+                        </span>
+                        <span class="card-time">
+                            · 9小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        0.1秒的水滴特写 治愈了12版
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        181
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Food Recipe Card -->
+            <div class="card card-medium">
+                <img alt="一碗美味的肉丸，配有蔬菜和汤汁，看起来非常诱人" class="card-image"
+                    src="https://placehold.co/400x200/52c41a/ffffff?text=美食肉丸" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="美食频道图标" src="https://placehold.co/16x16/52c41a/ffffff?text=美食" />
+                        <span>
+                            美食频道
+                        </span>
+                        <span class="card-time">
+                            · 17小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        营养还是蒸的好！推荐5道蒸菜做法，清单健康不上火
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        7
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- City View Card -->
+            <div class="card card-medium">
+                <img alt="城市全景，展示了城市的天际线和周围的山脉" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=城市风景" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="旅游频道图标" src="https://placehold.co/16x16/0078d4/ffffff?text=旅游" />
+                        <span>
+                            旅游频道
+                        </span>
+                        <span class="card-time">
+                            · 23小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        重庆真把广州给PK掉了？
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        23
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Ad Card -->
+            <div class="card card-small">
+                <img alt="游戏广告展示了一个肌肉发达的战士角色" class="card-image"
+                    src="https://placehold.co/400x200/e62117/ffffff?text=游戏广告" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <span>
+                            传奇游戏
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        2025传奇新版本
+                    </div>
+                </div>
+                <div class="ad-label">
+                    广告
+                </div>
+            </div>
+            <!-- Weather Card -->
+            <div class="card card-small weather-card">
+                <div class="weather-header">
+                    <div>
+                        <i class="fas fa-map-marker-alt">
+                        </i>
+                        北京市
+                    </div>
+                    <div>
+                        预报
+                    </div>
+                </div>
+                <div class="weather-temp">
+                    <i class="weather-icon fas fa-moon">
+                    </i>
+                    -1°C
+                </div>
+                <div>
+                    预报信息
+                </div>
+                <div class="weather-forecast">
+                    <div class="forecast-day">
+                        <div>
+                            今天
+                        </div>
+                        <i class="fas fa-sun" style="color: #f8c01d;">
+                        </i>
+                        <div>
+                            0°
+                        </div>
+                    </div>
+                    <div class="forecast-day">
+                        <div>
+                            周五
+                        </div>
+                        <i class="fas fa-cloud-sun" style="color: #f8c01d;">
+                        </i>
+                        <div>
+                            5°
+                        </div>
+                    </div>
+                    <div class="forecast-day">
+                        <div>
+                            周六
+                        </div>
+                        <i class="fas fa-cloud" style="color: #f8c01d;">
+                        </i>
+                        <div>
+                            6°
+                        </div>
+                    </div>
+                    <div class="forecast-day">
+                        <div>
+                            周日
+                        </div>
+                        <i class="fas fa-cloud" style="color: #f8c01d;">
+                        </i>
+                        <div>
+                            8°
+                        </div>
+                    </div>
+                    <div class="forecast-day">
+                        <div>
+                            周一
+                        </div>
+                        <i class="fas fa-sun" style="color: #f8c01d;">
+                        </i>
+                        <div>
+                            10°
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right; font-size: 12px; margin-top: 10px;">
+                    查看详细预报
+                </div>
+            </div>
+            <!-- Hot News List -->
+            <div class="card news-list">
+                <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold; color: #ff6700;">
+                        热搜
+                    </span>
+                    <i class="fas fa-ellipsis-h">
+                    </i>
+                </div>
+                <div class="news-source-list">
+                    <div class="news-item">
+                        <div class="news-number">
+                            1
+                        </div>
+                        <div class="news-title">
+                            小米SU7过程时速最高限速？官方：不实
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-number">
+                            2
+                        </div>
+                        <div class="news-title">
+                            苹果将推出iPhone最全面料
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-number">
+                            3
+                        </div>
+                        <div class="news-title">
+                            《崩坏3》将全球公测！！首测TOP10
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-number">
+                            4
+                        </div>
+                        <div class="news-title">
+                            国家统计局：1月CPI同比上涨0.5%
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-number">
+                            5
+                        </div>
+                        <div class="news-title">
+                            数据显示中国影视房屋销售增长
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-number">
+                            6
+                        </div>
+                        <div class="news-title">
+                            有人花1亿购买DeepSeek教育资源
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bedroom Renovation Card -->
+            <div class="card card-small">
+                <img alt="一间精心装修的卧室，带有床、窗帘和温馨的灯光" class="card-image"
+                    src="https://placehold.co/400x200/f8c01d/ffffff?text=卧室装修" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="家居小课堂图标" src="https://placehold.co/16x16/f8c01d/ffffff?text=家居" />
+                        <span>
+                            生活小课堂
+                        </span>
+                        <span class="card-time">
+                            · 3小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        为什么睡觉多的人身材1.8米的床，改选1.5米的呢？
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        187
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Stock Market Card -->
+            <div class="card card-small stock-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-weight: bold;">
+                        市场
+                    </span>
+                    <i class="fas fa-ellipsis-h">
+                    </i>
+                </div>
+                <div class="stock-item">
+                    <div class="stock-name">
+                        上证指数
+                    </div>
+                    <div>
+                        <div class="stock-price">
+                            2,865.87
+                        </div>
+                        <div class="stock-change">
+                            +1.01%
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-item">
+                    <div class="stock-name">
+                        深证成指
+                    </div>
+                    <div>
+                        <div class="stock-price">
+                            8,929.50
+                        </div>
+                        <div class="stock-change">
+                            +1.78%
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-item">
+                    <div class="stock-name">
+                        创业板指
+                    </div>
+                    <div>
+                        <div class="stock-price">
+                            1,776.39
+                        </div>
+                        <div class="stock-change">
+                            +2.63%
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-item">
+                    <div class="stock-name">
+                        USD/CNY
+                    </div>
+                    <div>
+                        <div class="stock-price">
+                            7.1984
+                        </div>
+                        <div class="stock-change positive">
+                            -0.00%
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-item">
+                    <div class="stock-name">
+                        恒生指数
+                    </div>
+                    <div>
+                        <div class="stock-price">
+                            15,533.94
+                        </div>
+                        <div class="stock-change">
+                            -1.18%
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right; font-size: 12px; color: #0078d4; margin-top: 10px;">
+                    查看更多
+                </div>
+            </div>
+            <!-- Sports Card -->
+            <div class="card card-small">
+                <img alt="冬季运动员在雪地上滑雪，展示了精彩的运动瞬间" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=冬季运动" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="体育频道图标" src="https://placehold.co/16x16/0078d4/ffffff?text=体育" />
+                        <span>
+                            体育频道
+                        </span>
+                        <span class="card-time">
+                            · 1小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        退役韩国队组图揭秘，中国队摘铜，网友炸了！
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        2
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Character Card -->
+            <div class="card card-small">
+                <img alt="游戏角色特写，展示了一个白胡子老人的面部特写" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=游戏角色" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="一点资讯图标" src="https://placehold.co/16x16/e62117/ffffff?text=游戏" />
+                        <span>
+                            一点资讯
+                        </span>
+                        <span class="card-time">
+                            · 5小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        《崩坏 2》无量仙人：好人还是坏人？深度剖析苏东坡色
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        976
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- American Airlines Card -->
+            <div class="card card-small">
+                <img alt="美国航空公司的飞机特写" class="card-image" src="https://placehold.co/400x200/767676/ffffff?text=美国航空" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="科技资讯图标" src="https://placehold.co/16x16/767676/ffffff?text=科技" />
+                        <span>
+                            科技资讯
+                        </span>
+                        <span class="card-time">
+                            · 17小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        这还行吗？华为Pura 80 Ultra配置曝光，专属"黑科"停字
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        14
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Character Card -->
+            <div class="card card-small">
+                <img alt="游戏角色特写，展示了一个穿着华丽服装的女性角色" class="card-image"
+                    src="https://placehold.co/400x200/ff6700/ffffff?text=游戏角色" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="科技资讯图标" src="https://placehold.co/16x16/ff6700/ffffff?text=游戏" />
+                        <span>
+                            科技资讯
+                        </span>
+                        <span class="card-time">
+                            · 1天
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        《王者荣耀》西施COS：身穿古装，头戴花饰，气质绝美还原
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        143
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- American Airlines Card -->
+            <div class="card card-small">
+                <img alt="一辆黑色轿车的侧面特写" class="card-image" src="https://placehold.co/400x200/000000/ffffff?text=汽车" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="汽车频道图标" src="https://placehold.co/16x16/e62117/ffffff?text=汽车" />
+                        <span>
+                            汽车频道
+                        </span>
+                        <span class="card-time">
+                            · 3天
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        A、B、C、D级车是什么意思？这次总算明白了
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        212
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Earth Card -->
+            <div class="card card-small">
+                <img alt="地球从太空中拍摄的照片，展示了蓝色的海洋和白色的云层" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=地球" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="一点资讯图标" src="https://placehold.co/16x16/0078d4/ffffff?text=科学" />
+                        <span>
+                            一点资讯/科学
+                        </span>
+                        <span class="card-time">
+                            · 3天
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        地球在宇宙的位置到底在哪里？我们是在中心还是边缘？
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        30
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Hospital Card -->
+            <div class="card card-small">
+                <img alt="医院走廊，展示了医院的内部环境" class="card-image"
+                    src="https://placehold.co/400x200/52c41a/ffffff?text=医院" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="健康大学堂图标" src="https://placehold.co/16x16/52c41a/ffffff?text=健康" />
+                        <span>
+                            健康大学堂
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        入住27天，我发现这家医院服务态度很好，纯粹是"没有硬骨头"
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        129
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Ad Card -->
+            <div class="card card-small">
+                <img alt="游戏广告展示了一个可爱的卡通角色" class="card-image"
+                    src="https://placehold.co/400x200/e62117/ffffff?text=游戏广告" />
+                <div class="card-content">
+                    <div class="card-source">
+                        <img alt="一点资讯图标" src="https://placehold.co/16x16/e62117/ffffff?text=游戏" />
+                        <span>
+                            一点资讯
+                        </span>
+                        <span class="card-time">
+                            · 21小时
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        《崩坏2:魔道篇》进入全球票房前60，国外影院一票难求
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <div class="card-action">
+                        <i class="far fa-eye">
+                        </i>
+                        211
+                    </div>
+                    <div class="card-action">
+                        <i class="far fa-heart">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!-- American Airlines Card -->
+            <div class="card card-small">
+                <img alt="交通地图，展示了城市的道路和交通状况" class="card-image"
+                    src="https://placehold.co/400x200/0078d4/ffffff?text=交通地图" />
+                <div class="traffic-map">
+                    <div class="traffic-info">
+                        <div class="traffic-time">
+                            41
+                        </div>
+                        <div>
+                            中等流量
+                        </div>
+                        <div>
+                            昌平区 朝阳区
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right; font-size: 12px; padding: 5px 10px;">
+                    在地图上查看
+                </div>
+            </div>
+            <!-- Basketball League Card -->
+            <div class="card card-small">
+                <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold;">
+                        美国职业篮球联赛
+                    </span>
+                    <i class="fas fa-ellipsis-h">
+                    </i>
+                </div>
+                <div style="padding: 0 10px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <img alt="篮球队标志" src="https://placehold.co/30x30/0078d4/ffffff?text=球队"
+                                style="width: 30px; height: 30px; margin-right: 10px;" />
+                            <div>
+                                <div>
+                                    勇士
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    西部
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-weight: bold; font-size: 18px;">
+                            110 - 130
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="text-align: right;">
+                                <div>
+                                    湖人
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    西部
+                                </div>
+                            </div>
+                            <img alt="湖人队标志" src="https://placehold.co/30x30/552583/ffffff?text=湖人"
+                                style="width: 30px; height: 30px; margin-left: 10px;" />
+                        </div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <img alt="凯尔特人队标志" src="https://placehold.co/30x30/007a33/ffffff?text=凯尔"
+                                style="width: 30px; height: 30px; margin-right: 10px;" />
+                            <div>
+                                <div>
+                                    凯尔特人
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    东部
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-weight: bold; font-size: 18px;">
+                            118 - 123
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="text-align: right;">
+                                <div>
+                                    篮网
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    东部
+                                </div>
+                            </div>
+                            <img alt="篮网队标志" src="https://placehold.co/30x30/000000/ffffff?text=篮网"
+                                style="width: 30px; height: 30px; margin-left: 10px;" />
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center;">
+                            <img alt="火箭队标志" src="https://placehold.co/30x30/ce1141/ffffff?text=火箭"
+                                style="width: 30px; height: 30px; margin-right: 10px;" />
+                            <div>
+                                <div>
+                                    火箭
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    西部
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-weight: bold; font-size: 18px;">
+                            122 - 105
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="text-align: right;">
+                                <div>
+                                    公牛
+                                </div>
+                                <div style="font-size: 10px; color: #999;">
+                                    东部
+                                </div>
+                            </div>
+                            <img alt="公牛队标志" src="https://placehold.co/30x30/ce1141/ffffff?text=公牛"
+                                style="width: 30px; height: 30px; margin-left: 10px;" />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="text-align: center; font-size: 12px; color: #0078d4; padding: 10px; border-top: 1px solid #eee; margin-top: 10px;">
+                    查看更多 美国职业篮球联赛
+                </div>
+            </div>
+            <!-- Calendar Card -->
+            <div class="card card-small calendar-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-weight: bold;">
+                        2025
+                    </span>
+                    <i class="fas fa-ellipsis-h">
+                    </i>
+                </div>
+                <div class="calendar-header">
+                    <div class="calendar-date">
+                        2月9日 星期日
+                    </div>
+                    <div style="color: #ff6700;">
+                        春节
+                    </div>
+                </div>
+                <div style="font-size: 12px; color: #999; margin-bottom: 10px;">
+                    农历正月初一
+                </div>
+                <div style="font-size: 12px; margin-bottom: 15px;">
+                    春节，传统上是中国最重要的节日，是中国人民辞旧迎新的重要庆祝活动。
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <div style="font-size: 12px; color: #999;">
+                        日
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        一
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        二
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        三
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        四
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        五
+                    </div>
+                    <div style="font-size: 12px; color: #999;">
+                        六
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-day">
+                        3
+                    </div>
+                    <div class="calendar-day">
+                        4
+                    </div>
+                    <div class="calendar-day">
+                        5
+                    </div>
+                    <div class="calendar-day">
+                        6
+                    </div>
+                    <div class="calendar-day">
+                        7
+                    </div>
+                    <div class="calendar-day">
+                        8
+                    </div>
+                    <div class="calendar-day today">
+                        9
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 12px; color: #0078d4; margin-top: 15px;">
+                    查看更多日历
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeleportHQ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .header {
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .cta-button {
+      background-color: #6c63ff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .main-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .main-text {
+      max-width: 500px;
+      font-size: 24px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .main-heading {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .main-subheading {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .start-button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .screenshot-container {
+      position: relative;
+      width: 60%;
+    }
+
+    .screenshot {
+      width: 100%;
+      height: auto;
+    }
+
+    .screenshot-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <img src="https://placehold.co/150x50?text=Logo" alt="TeleportHQ Logo" class="logo">
+      <div class="nav">
+        <div class="nav-links">
+          <a href="#" class="nav-link">Product</a>
+          <a href="#" class="nav-link">Services</a>
+          <a href="#" class="nav-link">Resources</a>
+          <a href="#" class="nav-link">White Label Editor</a>
+          <a href="#" class="nav-link">Pricing</a>
+        </div>
+        <button class="cta-button">Login</button>
+        <button class="cta-button">Start for free</button>
+      </div>
+    </div>
+  </div>
+  <div class="container main-section">
+    <div class="main-text">
+      <h1 class="main-heading">Translate design to code in an automated way</h1>
+      <p class="main-subheading">TeleportHQ is a design-to-code tool that helps you build products faster and turn them
+        into HTML.</p>
+      <p>With our platform, you don’t need to write code, but developers can create a fully functional website or app
+        based on a Figma design, which they can export as clean code.</p>
+      <button class="start-button">Start building</button>
+    </div>
+    <div class="screenshot-container">
+      <img src="https://placehold.co/600x400?text=Screenshot"
+        alt="A screenshot of the TeleportHQ interface showing a design being converted to code." class="screenshot">
+      <div class="screenshot-overlay">
+        <p class="overlay-text">&lt;/&gt;</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
