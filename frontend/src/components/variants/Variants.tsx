@@ -31,7 +31,7 @@ function Variants() {
             }`}
             onClick={() => updateSelectedVariantIndex(head, index)}
           >
-            <h3 className="font-medium mb-1">Option {index + 1}</h3>
+            <h3 className="font-medium mb-1">{index === 0 ? "GPT-4o": "Claude"}</h3>
           </div>
         ))}
       </div>

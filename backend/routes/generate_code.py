@@ -269,8 +269,8 @@ async def stream_code(websocket: WebSocket):
                     ]
                 elif openai_api_key:
                     variant_models = [
-                        Llm.GPT_4O_2024_11_20,
-                        Llm.GPT_4O_2024_11_20,
+                        Llm.OPEN_ROUTER_GPT4,
+                        Llm.OPEN_ROUTER_CLAUDE,
                     ]
                 elif anthropic_api_key:
                     variant_models = [
@@ -334,6 +334,20 @@ async def stream_code(websocket: WebSocket):
                                 api_key=anthropic_api_key,
                                 callback=lambda x, i=index: process_chunk(x, i),
                                 model=claude_model,
+                            )
+                        )
+                    elif model == Llm.OPEN_ROUTER_GPT4 or model == Llm.OPEN_ROUTER_CLAUDE:
+                        if openai_api_key is None:
+                            await throw_error("OpenAI API key is missing.")
+                            raise Exception("OpenAI API key is missing.")
+
+                        tasks.append(
+                            stream_openai_response(
+                                prompt_messages,
+                                api_key=openai_api_key,
+                                base_url=openai_base_url,
+                                callback=lambda x, i=index: process_chunk(x, i),
+                                model=model,
                             )
                         )
 
