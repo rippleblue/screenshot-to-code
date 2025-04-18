@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily News - Latest News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --header-bg: #1A237E;
+            --header-text: #FFFFFF;
+            --page-bg: #F5F5F5;
+            --card-bg: #FFFFFF;
+            --title-text: #333333;
+            --body-text: #666666;
+            --link-color: #1976D2;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--page-bg);
+            color: var(--body-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        header nav ul li a {
+            color: var(--header-text);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding-bottom: 0.3rem;
+        }
+
+        header nav ul li a.active {
+            border-bottom: 2px solid var(--header-text);
+        }
+
+        header nav ul li a:hover {
+             border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--title-text);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures the image covers the area */
+            display: block;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allows content to take available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--title-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: var(--body-text);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Pushes the link to the bottom */
+        }
+
+        .card-content .read-more {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--link-color);
+            text-decoration: none;
+            align-self: flex-start; /* Aligns link to the start */
+        }
+
+        .card-content .read-more:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">The Daily News</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">News</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Entertainment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="main-title">Latest News</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/EEE/31343C" alt="Abstract geometric pattern in shades of blue and grey representing technology">
+                <div class="card-content">
+                    <h3>Breaking News: Market Hits Record Highs</h3>
+                    <p>The stock market reached unprecedented levels today following positive economic reports and tech sector gains.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/DDE/31343C" alt="Scientists in lab coats looking at glowing test tubes, representing scientific discovery">
+                <div class="card-content">
+                    <h3>New Discoveries in Space Exploration</h3>
+                    <p>Astronomers report finding potential signs of water on a distant exoplanet, fueling hopes for discovering life beyond Earth.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/CDE/31343C" alt="Athlete crossing a finish line with confetti falling, symbolizing victory in sports">
+                <div class="card-content">
+                    <h3>Local Team Wins Championship</h3>
+                    <p>In a thrilling final game, the home team clinched the championship title with a last-minute goal.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/BCD/31343C" alt="Politicians shaking hands in front of national flags, representing international diplomacy">
+                <div class="card-content">
+                    <h3>Global Summit Addresses Climate Change</h3>
+                    <p>Leaders from around the world gathered to discuss urgent actions needed to combat the growing climate crisis.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/ABC/31343C" alt="Close-up of a modern smartphone displaying colorful app icons on its screen">
+                <div class="card-content">
+                    <h3>Tech Giant Unveils Latest Gadget</h3>
+                    <p>The highly anticipated smartphone features a revolutionary camera system and enhanced battery life.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://placehold.co/600x400/9AB/31343C" alt="Artist painting on a large canvas in a sunlit studio filled with art supplies">
+                <div class="card-content">
+                    <h3>Art Exhibition Opens Downtown</h3>
+                    <p>A new exhibition showcases vibrant works from emerging local artists, exploring themes of urban life and nature.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+</body>
+</html>
